@@ -1,0 +1,12 @@
+<table>
+  <tbody>
+    <tr>
+      <th>Accept Status</th>
+      <td>
+	<%= select_tag('settings[accept_status]',
+	options_for_select(IssueStatus.all, @settings['accept_status'])) %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
