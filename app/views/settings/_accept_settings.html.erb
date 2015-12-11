@@ -1,10 +1,10 @@
 <table>
   <tbody>
     <tr>
-      <th>Accept Status</th>
+      <th><%= l(:accept_status) %></th>
       <td>
 	<%= select_tag('settings[accept_status]',
-	options_for_select(IssueStatus.all.sorted.map{|s| [s.name, s.name]}, @settings['accept_status'])) %>
+	options_for_select(IssueStatus.sorted.all.map{|s| [s.name, s.name]}, @settings['accept_status'])) %>
       </td>
     </tr>
   </tbody>

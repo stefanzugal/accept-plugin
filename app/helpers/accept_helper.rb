@@ -1,4 +1,6 @@
 class AcceptHelper
+  include Redmine::I18n
+  
   def self.generate_accept_button (issue)
      #accepting closed tickets should not be possible
      status_id =  issue[:status_id]
@@ -22,7 +24,7 @@ class AcceptHelper
      var isNotAccepted = $("#issue_status_id").val() != ' + accept_id + ';
       
      if (isStatusPresent && isAssigneePresent && isNotAccepted) {
-      var button = $("<a class=\"icon icon-accept\" onclick=\"acceptTicket()\">Accept</a>");
+      var button = $("<a class=\"icon icon-accept\" onclick=\"acceptTicket()\">'+ l(:accept_label) +'</a>");
       $("#content .contextual:first").append(button);
      }
 
