@@ -1,6 +1,6 @@
-include ApplicationHelper
-
 class AcceptHelper
+  include Redmine::I18n
+  
   def self.generate_accept_button (issue)
      #accepting closed tickets should not be possible
      status_id =  issue[:status_id]
