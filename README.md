@@ -10,8 +10,8 @@ The plugin can be installed as ordinary redmine plugin (compatible with redmine 
 
 ### Version History
 
-0.0.2
+[0.0.2](../../releases/tag/0.0.2)
 * Allows the accept status to be dependent on the tracker the issue is assigned to, see [#5](../../issues/5). 
 
-0.0.1 
+[0.0.1](../../releases/tag/0.0.1)
  * First version of the plugin.
