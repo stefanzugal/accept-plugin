@@ -7,3 +7,11 @@ The plugin can be installed as ordinary redmine plugin (compatible with redmine 
 * Copy the content of this repository to the created directory
 * Restart redmine (e.g., through "touch your_redmine_base/tmp/restart.txt)
 * The accept plugin needs to know which issue status is considered as "accepted" in your redmine installation. By default, the first status is considered the "accepted" status. This behaviour can be configured in your redmine installation: Administration --> Plugins --> Accept Plugin --> Configure
+
+### Version History
+
+0.0.2
+* Allows the accept status to be dependent on the tracker the issue is assigned to, see [#5](../../issues/5). 
+
+0.0.1 
+ * First version of the plugin.
