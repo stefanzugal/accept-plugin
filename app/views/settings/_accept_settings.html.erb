@@ -1,12 +1,51 @@
-<table>
-  <tbody>
-    <tr>
-      <th><%= l(:accept_status) %></th>
-      <td>
+<p>
+ <label for="accept_individual_status_one_status">One status for all trackers</label>
+ <!-- the redmine settings page does not allow to use the radio_button_tag helper methods, so we use this workaround-->
+ <input type="radio" name="settings[accept_individual_status]" value="one_status_for_all_trackers" id="one_status_for_all_trackers"
+  <% if (@settings['accept_individual_status'] == 'one_status_for_all_trackers') || (@settings['accept_individual_status'].nil?) then %>
+   checked
+  <% end %>
+ >
+</p>
+<p class="accept-plugin-common-status">
+      <label><%= l(:accept_status) %></label>
 	<%= select_tag('settings[accept_status]',
 	options_for_select(IssueStatus.sorted.all.map{|s| [s.name, s.name]}, @settings['accept_status'])) %>
-      </td>
-    </tr>
-  </tbody>
-</table>
+</p>
+
+<p>
+ <label for="accept_individual_status_individual_status">Individual status for each tracker</label>
+ <!-- the redmine settings page does not allow to use the radio_button_tag helper methods, so we use this workaround-->
+ <input type="radio" name="settings[accept_individual_status]" value="individual_status_for_each_tracker"
+ <% if @settings['accept_individual_status'] == 'individual_status_for_each_tracker' %>
+  checked
+ <% end %>
+>
+</p>
+
+<% Tracker.all.each do |tracker|  %>
+  <p class="accept-plugin-individual-status">
+    <label><%= l(:accept_status) + ' "'  + tracker.name + '"' %></label>
+    <%= select_tag('settings[accept_status_' + tracker.name + ']',  options_for_select(IssueStatus.sorted.all.map{|s| [s.name, s.name]}, @settings['accept_status_' + tracker.name]))   %>
+  </p>
+<% end %>
+
+
+<script>
+// this script hides the currently disabled options from the user, e.g., hides the select for choosing individual status per tracker if only one status per tracker should be available
+$('input[type=radio]').on('change', adaptAcceptEnabledStatus);
+
+function adaptAcceptEnabledStatus(){
+  if($('#one_status_for_all_trackers').is(':checked')){
+    $('.accept-plugin-individual-status').hide();
+    $('.accept-plugin-common-status').show();
+  } else {
+    $('.accept-plugin-individual-status').show();
+    $('.accept-plugin-common-status').hide();
+  }
+}
+
+adaptAcceptEnabledStatus();
+</script>
+
 

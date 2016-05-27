@@ -2,15 +2,23 @@ class AcceptHelper
   include Redmine::I18n
   
   def self.generate_accept_button (issue)
-     #accepting closed tickets should not be possible
+     # accepting closed tickets should not be possible
      status_id =  issue[:status_id]
      issue_status = IssueStatus.find(status_id)
      if issue_status[:is_closed] == true
        return ""
      end
 
-     #otherwise generate the button code - since there appears to be no explicit hook for the menu buttons, use js to insert the button
-     accept_status =  IssueStatus.where(name: Setting.plugin_accept[:accept_status])
+     accept_status_name = Setting.plugin_accept[:accept_status]
+     individual_status = Setting.plugin_accept[:accept_individual_status]
+     # if accept_status is defined per tracker, use the specific accept_status
+     if individual_status == 'individual_status_for_each_tracker'
+       tracker_name = Tracker.where(id: issue.tracker_id)[0].name
+       accept_status_name = Setting.plugin_accept['accept_status_' + tracker_name]
+     end
+     accept_status =  IssueStatus.where(name: accept_status_name)
+
+     # generate the button code - since there appears to be no explicit hook for the menu buttons, use js to insert the button
      if accept_status.empty?
        accept_id = IssueStatus.first[:id].to_s
      else
