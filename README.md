@@ -8,6 +8,15 @@ The plugin can be installed as ordinary redmine plugin (compatible with redmine 
 * Restart redmine (e.g., through "touch your_redmine_base/tmp/restart.txt)
 * The accept plugin needs to know which issue status is considered as "accepted" in your redmine installation. By default, the first status is considered the "accepted" status. This behaviour can be configured in your redmine installation: Administration --> Plugins --> Accept Plugin --> Configure
 
+### Things Good to Know
+
+* From version 0.0.2, it is possible to define the accept status per tracker. This means, depending on the tracker the issue is assigned to, a different accept status may be selected. If you do not wish to have a different accept status for each tracker, it is stil possible to configure a common accept state for all trackers.
+* The accept button does not show up. Why?
+  * The accept button will only show up if you are listed in the combo box with "Assigned to".
+  * If the issue is already closed, the button will not show up.
+  * If you have already accepted the isse - meaning that the issue is already in the defined accept state, the button will not show up.
+
+
 ### Version History
 
 [0.0.2](../../releases/tag/0.0.2)
