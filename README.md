@@ -10,11 +10,11 @@ The plugin can be installed as ordinary redmine plugin (compatible with redmine 
 
 ### Things Good to Know
 
-* From version 0.0.2, it is possible to define the accept status per tracker. This means, depending on the tracker the issue is assigned to, a different accept status may be selected. If you do not wish to have a different accept status for each tracker, it is stil possible to configure a common accept state for all trackers.
+* From version 0.0.2, it is possible to define the accept status per tracker. This means, depending on the tracker the issue is assigned to, a different accept status may be selected. If you do not wish to have a different accept status for each tracker, it is still possible to configure a common accept state for all trackers.
 * The accept button does not show up. Why?
   * The accept button will only show up if you are listed in the combo box with "Assigned to".
   * If the issue is already closed, the button will not show up.
-  * If you have already accepted the isse - meaning that the issue is already in the defined accept state, the button will not show up.
+  * If you have already accepted the issue - meaning that the issue is already in the defined accept state, the button will not show up.
 
 
 ### Version History
