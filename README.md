@@ -24,3 +24,8 @@ The plugin can be installed as ordinary redmine plugin (compatible with redmine 
 
 [0.0.1](../../releases/tag/0.0.1)
  * First version of the plugin.
+
+
+### License
+
+This project is licensed under [the MIT License](../../blob/master/LICENSE).
