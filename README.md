@@ -20,7 +20,7 @@ The plugin can be installed as ordinary redmine plugin (compatible with redmine 
 ### Version History
 
 [0.0.3](../../releases/tag/0.0.3)
-* Fixed issue with saving tracker settings that have special characters (#12). The new code will now store the status using the tracker's id - so when you have configured the "accept status per role", please back-up your settings and re-insert them after the upgrade, since there is no automated migration.
+* Fixed issue with saving tracker settings that have special characters (see [#12](../../issues/12)). The new code will now store the status using the tracker's id - so when you have configured the "accept status per role", please back-up your settings and re-insert them after the upgrade, since there is no automated migration.
 
 [0.0.2](../../releases/tag/0.0.2)
 * Allows the accept status to be dependent on the tracker the issue is assigned to, see [#5](../../issues/5). 
