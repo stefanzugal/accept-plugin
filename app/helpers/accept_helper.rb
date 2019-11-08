@@ -13,8 +13,8 @@ class AcceptHelper
      individual_status = Setting.plugin_accept[:accept_individual_status]
      # if accept_status is defined per tracker, use the specific accept_status
      if individual_status == 'individual_status_for_each_tracker'
-       tracker_name = Tracker.where(id: issue.tracker_id)[0].name
-       accept_status_name = Setting.plugin_accept['accept_status_' + tracker_name]
+       tracker_id = Tracker.where(id: issue.tracker_id)[0].id
+       accept_status_name = Setting.plugin_accept['accept_status_' + tracker_id.to_s]
      end
      accept_status =  IssueStatus.where(name: accept_status_name)
 

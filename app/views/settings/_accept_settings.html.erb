@@ -26,7 +26,7 @@
 <% Tracker.all.each do |tracker|  %>
   <p class="accept-plugin-individual-status">
     <label><%= l(:accept_status) + ' "'  + tracker.name + '"' %></label>
-    <%= select_tag('settings[accept_status_' + tracker.name + ']',  options_for_select(IssueStatus.sorted.all.map{|s| [s.name, s.name]}, @settings['accept_status_' + tracker.name]))   %>
+    <%= select_tag('settings[accept_status_' + tracker.id.to_s + ']',  options_for_select(IssueStatus.sorted.all.map{|s| [s.name, s.name]}, @settings['accept_status_' + tracker.id.to_s]))   %>
   </p>
 <% end %>
 
