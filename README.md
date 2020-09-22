@@ -1,6 +1,8 @@
 # Redmine Accept Plugin
 People having worked with TRAC are used to "accept" issues, which basically states that someone will now actively work on a specific issue. Redmine apparently also supports custom issue statuses, such as "accepted", but it requires more than one click to accept an issue (edit issue, select status "accepted", select assignee). This plugin allows to accept tickets with one click.
 
+To repeat, because it appears to be misleading: That is the one and only purpose of this plugin: to state with one click that "I am now working on this issue". That's it - nothing more than that.
+
 ### Installation Notes
 The plugin can be installed as ordinary redmine plugin (compatible with redmine 4.0.x, 3.4.x, 3.3.x, 3.2.x, 3.1.x, 3.0.x, 2.6.x.) and does not require database migration:
 * Create directory your_redmine_base/plugins/accept
